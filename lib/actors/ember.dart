@@ -25,6 +25,9 @@ class EmberPlayer extends SpriteAnimationComponent
   bool hasJumped = false;
   bool hitByEnemy = false;
 
+  int starsCollected = 0;
+  int health = 3;
+
   EmberPlayer({
     required super.position,
   }) : super(
@@ -94,6 +97,15 @@ class EmberPlayer extends SpriteAnimationComponent
     position+=velocity * dt;
 
     position.x = position.x.clamp(36, game.size.x / 2 - 64);
+    position.y = position.y.clamp(0, game.size.y - size.y);
+
+    if(position.y > game.size.y + size.y){
+      game.health = 0;
+    }
+
+    if(game.health <= 0){
+      removeFromParent();
+    }
 
     super.update(dt);
   }
@@ -118,10 +130,12 @@ class EmberPlayer extends SpriteAnimationComponent
 
     if(other is Star){
       other.removeFromParent();
+      game.starsCollected++;
     }
 
     if(other is WaterEnemy){
       hit();
+      other.removeFromParent();
     }
 
     super.onCollision(intersectionPoints, other);
@@ -129,6 +143,7 @@ class EmberPlayer extends SpriteAnimationComponent
 
   void hit() {
     if(!hitByEnemy){
+      game.health--;
       hitByEnemy = true;
     }
 

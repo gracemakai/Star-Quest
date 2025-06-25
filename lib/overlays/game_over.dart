@@ -17,8 +17,8 @@ class GameOver extends StatelessWidget{
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 200,
-          width: 300,
+          height: 400,
+          width: 500,
           decoration: const BoxDecoration(
             color: blackTextColor,
             borderRadius: BorderRadius.all(
