@@ -52,8 +52,8 @@ class EmberPlayer extends SpriteAnimationComponent
   bool onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
 
     horizontalDirection = 0;
-    horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyA) || keysPressed.contains(LogicalKeyboardKey.arrowRight)) ? 1 : 0;
-    horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) || keysPressed.contains(LogicalKeyboardKey.arrowLeft)) ? -1 : 0;
+    horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) || keysPressed.contains(LogicalKeyboardKey.arrowRight)) ? 1 : 0;
+    horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyA) || keysPressed.contains(LogicalKeyboardKey.arrowLeft)) ? -1 : 0;
 
     hasJumped = keysPressed.contains(LogicalKeyboardKey.space) || keysPressed.contains(LogicalKeyboardKey.arrowUp);
 
