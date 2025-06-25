@@ -6,6 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:star_quest/actors/ember.dart';
 import 'package:star_quest/actors/water_enemy.dart';
+import 'package:star_quest/highscore_manager.dart';
 import 'package:star_quest/managers/segment_manager.dart';
 import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/objects/platform_block.dart';
@@ -21,6 +22,7 @@ class EmberQuestGame extends FlameGame
   late UniqueKey lastBlockKey;
   int health = 3;
   int starsCollected = 0;
+  bool isGameOver = false;
 
   @override
   Future<void> onLoad() async {
@@ -44,12 +46,19 @@ class EmberQuestGame extends FlameGame
     return const Color.fromARGB(255, 173, 223, 247);
   }
 
-
   @override
-  void update(double dt) {
+  Future<void> update(double dt) async {
 
-    if(health <= 0){
+    if(isGameOver) return;
+
+    if (health <= 0) {
+      isGameOver = true;
       overlays.add('GameOver');
+      final highScore = await HighScoreManager.getHighScore();
+
+      if(starsCollected > highScore) {
+        await HighScoreManager.setHighScore(starsCollected);
+      }
     }
 
     super.update(dt);
@@ -89,9 +98,10 @@ class EmberQuestGame extends FlameGame
     }
   }
 
-  void reset(){
+  void reset() {
     starsCollected = 0;
     health = 3;
+    isGameOver = false;
     initializeGame(false);
   }
 }

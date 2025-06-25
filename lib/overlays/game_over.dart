@@ -2,10 +2,33 @@
 import 'package:flutter/material.dart';
 import 'package:star_quest/ember_quest.dart';
 
-class GameOver extends StatelessWidget{
+import '../highscore_manager.dart';
+
+class GameOver extends StatefulWidget{
 
   final EmberQuestGame game;
   const GameOver({super.key, required this.game});
+
+  @override
+  State<GameOver> createState() => _GameOverState();
+}
+
+class _GameOverState extends State<GameOver> {
+  int _highScore = 0;
+
+
+  @override
+  void initState() {
+    super.initState();
+    _initHighScore();
+  }
+
+  Future<void> _initHighScore() async {
+    final highScore = await HighScoreManager.getHighScore();
+    setState(() {
+      _highScore = highScore;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +61,8 @@ class GameOver extends StatelessWidget{
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
-                  game.reset();
-                  game.overlays.remove('GameOver');
+                  widget.game.reset();
+                  widget.game.overlays.remove('GameOver');
                 },
                 child: const Text('Restart Game',
                   style: TextStyle(
@@ -49,7 +72,16 @@ class GameOver extends StatelessWidget{
               ),
               const SizedBox(height: 20),
               Text(
-                'You collected ${game.starsCollected} stars!',
+                'You collected ${widget.game.starsCollected} stars!',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: whiteTextColor,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 50),
+              Text(
+                'Current high score $_highScore stars!',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: whiteTextColor,
