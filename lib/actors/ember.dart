@@ -1,13 +1,24 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/services.dart';
 import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/objects/ground_block.dart';
+import 'package:star_quest/objects/platform_block.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
-    with KeyboardHandler, HasGameReference<EmberQuestGame> {
+    with KeyboardHandler, CollisionCallbacks, HasGameReference<EmberQuestGame> {
 
   int horizontalDirection = 0; // -1 for left, 1 for right, 0 for no movement
   final Vector2 velocity = Vector2.zero();
   final double moveSpeed = 200;
+  bool isOnGround = false;
+  final Vector2 fromAbove = Vector2(0, -1);
+
+  final double gravity = 15;
+  final double jumpSpeed = 600;
+  final double terminalVelocity = 150;
+
+  bool hasJumped = false;
 
   EmberPlayer({
     required super.position,
@@ -26,6 +37,7 @@ class EmberPlayer extends SpriteAnimationComponent
         textureSize: Vector2.all(16),
       ),
     );
+    add(CircleHitbox());
   }
 
   @override
@@ -34,6 +46,8 @@ class EmberPlayer extends SpriteAnimationComponent
     horizontalDirection = 0;
     horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyA) || keysPressed.contains(LogicalKeyboardKey.arrowRight)) ? 1 : 0;
     horizontalDirection += (keysPressed.contains(LogicalKeyboardKey.keyD) || keysPressed.contains(LogicalKeyboardKey.arrowLeft)) ? -1 : 0;
+
+    hasJumped = keysPressed.contains(LogicalKeyboardKey.space) || keysPressed.contains(LogicalKeyboardKey.arrowUp);
 
     return true;
   }
@@ -49,6 +63,39 @@ class EmberPlayer extends SpriteAnimationComponent
       flipHorizontally();
     }
 
+    velocity.y += gravity;
+
+    if(hasJumped){
+      if(isOnGround){
+        velocity.y = -jumpSpeed;
+        isOnGround = false;
+      }
+      hasJumped = false;
+    }
+
+    velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity);
+
     super.update(dt);
+  }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    if(other is GroundBlock || other is PlatformBlock){
+      if(intersectionPoints.length == 2){
+        final mid = (intersectionPoints.elementAt(0) + intersectionPoints.elementAt(1)) / 2;
+
+        final collisionNormal = absoluteCenter - mid;
+        final separationDistance = (size.x / 2) - collisionNormal.length;
+        collisionNormal.normalize();
+
+        if(fromAbove.dot(collisionNormal) > 0.9){
+          isOnGround = true;
+        }
+
+        position += collisionNormal.scaled(separationDistance);
+      }
+    }
+
+    super.onCollision(intersectionPoints, other);
   }
 }
