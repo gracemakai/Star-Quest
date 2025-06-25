@@ -63,50 +63,50 @@ class EmberPlayer extends SpriteAnimationComponent
   @override
   void update(double dt) {
     velocity.x = horizontalDirection * moveSpeed;
-    position += velocity * dt;
-
-    if(horizontalDirection < 0 && scale.x > 0){
-      flipHorizontally();
-    }else if(horizontalDirection > 0 && scale.x < 0){
-      flipHorizontally();
+    game.objectSpeed = 0;
+    // Prevent ember from going backwards at screen edge.
+    if (position.x - 36 <= 0 && horizontalDirection < 0) {
+      velocity.x = 0;
+    }
+    // Prevent ember from going beyond half screen.
+    if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
+      velocity.x = 0;
+      game.objectSpeed = -moveSpeed;
     }
 
+    // Apply basic gravity.
     velocity.y += gravity;
 
-    if(hasJumped){
-      if(isOnGround){
+    // Determine if ember has jumped.
+    if (hasJumped) {
+      if (isOnGround) {
         velocity.y = -jumpSpeed;
         isOnGround = false;
       }
       hasJumped = false;
     }
 
+    // Prevent ember from jumping to crazy fast.
     velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity);
 
-    game.objectSpeed = 0;
+    // Adjust ember position.
+    position += velocity * dt;
 
-    if(position.x - 36 <= 0 && horizontalDirection < 0){
-      velocity.x = 0;
-    }
-
-    if(position.x + 64 >= game.size.x / 2 && horizontalDirection > 0){
-      velocity.x = 0;
-      game.objectSpeed = -moveSpeed;
-    }
-
-    position+=velocity * dt;
-
-    position.x = position.x.clamp(36, game.size.x / 2 - 64);
-    position.y = position.y.clamp(0, game.size.y - size.y);
-
-    if(position.y > game.size.y + size.y){
+    // If ember fell in pit, then game over.
+    if (position.y > game.size.y + size.y) {
       game.health = 0;
     }
 
-    if(game.health <= 0){
+    if (game.health <= 0) {
       removeFromParent();
     }
 
+    // Flip ember if needed.
+    if (horizontalDirection < 0 && scale.x > 0) {
+      flipHorizontally();
+    } else if (horizontalDirection > 0 && scale.x < 0) {
+      flipHorizontally();
+    }
     super.update(dt);
   }
 
