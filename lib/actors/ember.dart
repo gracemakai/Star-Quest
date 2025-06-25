@@ -80,6 +80,21 @@ class EmberPlayer extends SpriteAnimationComponent
 
     velocity.y = velocity.y.clamp(-jumpSpeed, terminalVelocity);
 
+    game.objectSpeed = 0;
+
+    if(position.x - 36 <= 0 && horizontalDirection < 0){
+      velocity.x = 0;
+    }
+
+    if(position.x + 64 >= game.size.x / 2 && horizontalDirection > 0){
+      velocity.x = 0;
+      game.objectSpeed = -moveSpeed;
+    }
+
+    position+=velocity * dt;
+
+    position.x = position.x.clamp(36, game.size.x / 2 - 64);
+
     super.update(dt);
   }
 
