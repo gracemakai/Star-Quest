@@ -8,8 +8,9 @@ import '../objects/star.dart';
 class TileBlock{
   final Vector2 gridPosition;
   final Type blockType;
+  final bool last;
 
-  TileBlock(this.gridPosition, this.blockType);
+  TileBlock(this.gridPosition, this.blockType, {this.last = false});
 }
 
 final levelOneSegments = [
@@ -51,7 +52,7 @@ final segment0 = [
   TileBlock(Vector2(7, 3), PlatformBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(8, 3), PlatformBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment1 = [
@@ -69,7 +70,7 @@ final segment1 = [
   TileBlock(Vector2(8, 1), PlatformBlock),
   TileBlock(Vector2(8, 5), PlatformBlock),
   TileBlock(Vector2(8, 6), WaterEnemy),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment2 = [
@@ -90,7 +91,7 @@ final segment2 = [
   TileBlock(Vector2(6, 7), Star),
   TileBlock(Vector2(7, 0), GroundBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment3 = [
@@ -106,7 +107,7 @@ final segment3 = [
   TileBlock(Vector2(7, 1), PlatformBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(8, 8), Star),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment4 = [
@@ -128,7 +129,7 @@ final segment4 = [
   TileBlock(Vector2(8, 3), PlatformBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
   TileBlock(Vector2(9, 1), WaterEnemy),
-  TileBlock(Vector2(9, 3), PlatformBlock),
+  TileBlock(Vector2(9, 3), PlatformBlock, last: true),
 ];
 
 final segment5 = [
@@ -146,7 +147,7 @@ final segment5 = [
   TileBlock(Vector2(7, 0), GroundBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment6 = [
@@ -165,7 +166,7 @@ final segment6 = [
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment7 = [
@@ -179,7 +180,7 @@ final segment7 = [
   TileBlock(Vector2(6, 7), PlatformBlock),
   TileBlock(Vector2(7, 5), PlatformBlock),
   TileBlock(Vector2(8, 3), PlatformBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment8 = [
@@ -195,7 +196,7 @@ final segment8 = [
   TileBlock(Vector2(6, 0), GroundBlock),
   TileBlock(Vector2(7, 0), GroundBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment9 = [
@@ -213,7 +214,7 @@ final segment9 = [
   TileBlock(Vector2(4, 5), PlatformBlock),
   TileBlock(Vector2(5, 5), PlatformBlock),
   TileBlock(Vector2(6, 5), PlatformBlock),
-  TileBlock(Vector2(5, 6), Star),
+  TileBlock(Vector2(5, 6), Star, last: true),
 ];
 
 final segment10 = [
@@ -231,7 +232,7 @@ final segment10 = [
   TileBlock(Vector2(7, 0), GroundBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(8, 4), Star),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment11 = [
@@ -245,7 +246,7 @@ final segment11 = [
   TileBlock(Vector2(7, 6), PlatformBlock),
   TileBlock(Vector2(8, 3), PlatformBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
-  TileBlock(Vector2(5, 8), Star),
+  TileBlock(Vector2(5, 8), Star, last: true),
 ];
 
 final segment12 = [
@@ -263,7 +264,7 @@ final segment12 = [
   TileBlock(Vector2(10, 1), WaterEnemy),
   TileBlock(Vector2(8, 0), GroundBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
-  TileBlock(Vector2(8, 2), Star),
+  TileBlock(Vector2(8, 2), Star, last: true),
 ];
 
 final segment13 = [
@@ -278,7 +279,7 @@ final segment13 = [
   TileBlock(Vector2(9, 4), WaterEnemy),
   TileBlock(Vector2(8.5, 3), PlatformBlock),
   TileBlock(Vector2(7.5, 3), PlatformBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
 
 final segment14 = [
@@ -292,5 +293,5 @@ final segment14 = [
   TileBlock(Vector2(6, 0), GroundBlock),
   TileBlock(Vector2(7, 0), GroundBlock),
   TileBlock(Vector2(8, 0), GroundBlock),
-  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock, last: true),
 ];
