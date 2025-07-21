@@ -11,6 +11,7 @@ import 'package:star_quest/managers/segment_manager.dart';
 import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/objects/platform_block.dart';
 import 'package:star_quest/overlays/hud.dart';
+import 'package:star_quest/util/colors.dart';
 
 import 'objects/star.dart';
 
@@ -23,6 +24,7 @@ class StarQuestGame extends FlameGame
   int health = 3;
   int starsCollected = 0;
   bool isGameOver = false;
+  Color _backgroundColor = dayBackgroundColor;
 
   @override
   Future<void> onLoad() async {
@@ -43,20 +45,19 @@ class StarQuestGame extends FlameGame
 
   @override
   Color backgroundColor() {
-    return const Color.fromARGB(255, 173, 223, 247);
+    return _backgroundColor;
   }
 
   @override
   Future<void> update(double dt) async {
-
-    if(isGameOver) return;
+    if (isGameOver) return;
 
     if (health <= 0) {
       isGameOver = true;
       overlays.add('GameOver');
       final highScore = await HighScoreManager.getHighScore();
 
-      if(starsCollected > highScore) {
+      if (starsCollected > highScore) {
         await HighScoreManager.setHighScore(starsCollected);
       }
     }
@@ -103,5 +104,9 @@ class StarQuestGame extends FlameGame
     health = 3;
     isGameOver = false;
     initializeGame(false);
+  }
+
+  void setBackgroundColor(Color color) {
+    _backgroundColor = color;
   }
 }
