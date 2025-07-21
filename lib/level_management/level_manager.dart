@@ -4,12 +4,6 @@ import 'package:star_quest/level_management/game_level.dart';
 import 'package:star_quest/overlays/hud.dart';
 
 import '../actors/ember.dart';
-import '../actors/water_enemy.dart';
-import '../managers/segment_manager.dart';
-import '../objects/ground_block.dart';
-import '../objects/platform_block.dart';
-import '../objects/star.dart';
-import '../star_quest.dart';
 
 class LevelManager extends Component{
   int currentLevel = 1;

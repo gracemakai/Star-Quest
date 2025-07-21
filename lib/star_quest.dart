@@ -6,7 +6,6 @@ import 'package:star_quest/highscore_manager.dart';
 import 'package:star_quest/level_management/level_manager.dart';
 import 'package:star_quest/util/colors.dart';
 
-
 class StarQuestGame extends FlameGame
     with HasCollisionDetection, HasKeyboardHandlerComponents {
   double objectSpeed = 0.0;
@@ -61,7 +60,7 @@ class StarQuestGame extends FlameGame
   void onLevelComplete() {
     // starsCollected += 1;
     levelManager.nextLevel();
-    // overlays.add('LevelComplete');
+    resumeEngine();
   }
 
   void reset() {
