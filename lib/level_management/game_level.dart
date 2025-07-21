@@ -5,12 +5,13 @@ import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/util/colors.dart';
 
 class GameLevel extends Component with HasGameReference<StarQuestGame> {
-  int currentLevel = 1;
+  final int currentLevel;
 
-  void loadLevel(int level) {
-    currentLevel = level;
+  GameLevel({required this.currentLevel});
 
-    switch (level) {
+  @override
+  Future<void> onLoad() async {
+    switch (currentLevel) {
       case 1:
         game.setBackgroundColor(dayBackgroundColor);
         break;
@@ -21,17 +22,7 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
         game.setBackgroundColor(underGroundBackgroundColor);
         break;
       default:
-        currentLevel = 1;
         break;
     }
-  }
-
-  void resetLevel() {
-    currentLevel = 1;
-  }
-
-  void nextLevel() {
-    currentLevel++;
-    loadLevel(currentLevel);
   }
 }
