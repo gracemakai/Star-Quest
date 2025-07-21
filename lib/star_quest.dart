@@ -14,7 +14,7 @@ import 'package:star_quest/overlays/hud.dart';
 
 import 'objects/star.dart';
 
-class EmberQuestGame extends FlameGame
+class StarQuestGame extends FlameGame
     with HasCollisionDetection, HasKeyboardHandlerComponents {
   late EmberPlayer _ember;
   double objectSpeed = 0.0;

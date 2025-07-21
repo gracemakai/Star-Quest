@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
 import '../highscore_manager.dart';
 
 class GameOver extends StatefulWidget{
 
-  final EmberQuestGame game;
+  final StarQuestGame game;
   const GameOver({super.key, required this.game});
 
   @override

@@ -1,9 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
-class WaterEnemy extends SpriteAnimationComponent with HasGameReference<EmberQuestGame>{
+class WaterEnemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame>{
   final Vector2 gridPosition;
   double xOffset;
 

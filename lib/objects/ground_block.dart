@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/managers/segment_manager.dart';
 
 class GroundBlock extends SpriteComponent
-    with HasGameReference<EmberQuestGame> {
+    with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
   final UniqueKey _blockKey = UniqueKey();

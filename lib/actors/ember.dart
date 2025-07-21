@@ -3,14 +3,14 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/services.dart';
 import 'package:star_quest/actors/water_enemy.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/objects/platform_block.dart';
 
 import '../objects/star.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
-    with KeyboardHandler, CollisionCallbacks, HasGameReference<EmberQuestGame> {
+    with KeyboardHandler, CollisionCallbacks, HasGameReference<StarQuestGame> {
 
   int horizontalDirection = 0; // -1 for left, 1 for right, 0 for no movement
   final Vector2 velocity = Vector2.zero();

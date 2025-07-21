@@ -2,9 +2,9 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/animation.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
-class Star extends SpriteComponent with HasGameReference<EmberQuestGame> {
+class Star extends SpriteComponent with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 

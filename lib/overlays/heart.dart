@@ -1,13 +1,13 @@
 
 import 'package:flame/components.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
 enum HeartState{
   available,
   unavailable,
 }
 
-class HeartHealthComponent extends SpriteGroupComponent<HeartState> with HasGameReference<EmberQuestGame> {
+class HeartHealthComponent extends SpriteGroupComponent<HeartState> with HasGameReference<StarQuestGame> {
 
   final int heartNumber;
 

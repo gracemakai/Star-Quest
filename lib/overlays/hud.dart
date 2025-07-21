@@ -1,9 +1,9 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/overlays/heart.dart';
 
-class Hud extends PositionComponent with HasGameReference<EmberQuestGame> {
+class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
   Hud({
     super.position,
     super.size,

@@ -1,9 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
 class PlatformBlock extends SpriteComponent
-    with HasGameReference<EmberQuestGame> {
+    with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
   final Vector2 velocity = Vector2.zero();

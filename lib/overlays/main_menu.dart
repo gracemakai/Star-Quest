@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:star_quest/ember_quest.dart';
+import 'package:star_quest/star_quest.dart';
 
 class MainMenu extends StatelessWidget{
-  final EmberQuestGame game;
+  final StarQuestGame game;
 
   const MainMenu({super.key, required this.game});
 
