@@ -42,12 +42,6 @@ class GroundBlock extends SpriteComponent
 
     if (position.x < -size.x) {
       removeFromParent();
-      if (gridPosition.x == 0) {
-        game.levelManager.loadSegments(
-          Random().nextInt(levelTwoSegments.length),
-          game.lastBlockXPosition,
-        );
-      }
     }
 
     if (gridPosition.x == 9) {

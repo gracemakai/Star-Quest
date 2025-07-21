@@ -6,7 +6,7 @@ import '../managers/segment_manager.dart';
 
 class LevelConfig {
   final Color backgroundColor;
-  final List<List<Block>> segments;
+  final List<List<TileBlock>> segments;
   final Vector2 emberStartPosition;
 
 
