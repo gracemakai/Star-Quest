@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flame/components.dart';
 import 'package:star_quest/managers/segment_manager.dart';
 import 'package:star_quest/objects/ground_block.dart';
@@ -39,8 +37,7 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
   }
 
   void _loadSegments() {
-    var segmentsToLoad = (game.size.x / 640).ceil();
-    segmentsToLoad = segmentsToLoad.clamp(0, currentSegments.length);
+    var segmentsToLoad = currentSegments.length;
 
     for (var i = 0; i < segmentsToLoad; i++) {
       final xOffset = (i * 640).toDouble();
@@ -48,10 +45,14 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
         switch (block.blockType) {
           case const (GroundBlock):
             game.world.add(GroundBlock(
-                gridPosition: block.gridPosition, xOffset: xOffset));
+                gridPosition: block.gridPosition,
+                xOffset: xOffset,
+                lastBlock: block.lastBlock));
           case const (PlatformBlock):
             game.world.add(PlatformBlock(
-                gridPosition: block.gridPosition, xOffset: xOffset));
+                gridPosition: block.gridPosition,
+                xOffset: xOffset,
+                lastBlock: block.lastBlock));
           case const (Star):
             game.world
                 .add(Star(gridPosition: block.gridPosition, xOffset: xOffset));

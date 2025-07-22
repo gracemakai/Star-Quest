@@ -7,10 +7,12 @@ class PlatformBlock extends SpriteComponent
   final Vector2 gridPosition;
   double xOffset;
   final Vector2 velocity = Vector2.zero();
+  final bool lastBlock;
 
   PlatformBlock({
     required this.gridPosition,
     required this.xOffset,
+    this.lastBlock = false,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override

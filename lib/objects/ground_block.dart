@@ -6,17 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/managers/segment_manager.dart';
 
-class GroundBlock extends SpriteComponent
-    with HasGameReference<StarQuestGame> {
+class GroundBlock extends SpriteComponent with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
   final UniqueKey _blockKey = UniqueKey();
 
   final Vector2 velocity = Vector2.zero();
+  final bool lastBlock;
 
   GroundBlock({
     required this.gridPosition,
     required this.xOffset,
+    required this.lastBlock,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override
@@ -50,7 +51,7 @@ class GroundBlock extends SpriteComponent
       }
     }
 
-    if(game.health <= 0) {
+    if (game.health <= 0) {
       removeFromParent();
     }
 
