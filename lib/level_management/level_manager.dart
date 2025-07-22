@@ -21,7 +21,7 @@ class LevelManager extends Component{
 
     final newLevel = GameLevel(currentLevel: currentLevel);
     gameRef.add(newLevel);
-    initializeGame(false);
+    initializeGame();
   }
 
   void nextLevel() {
@@ -34,13 +34,9 @@ class LevelManager extends Component{
     }
   }
 
-  void initializeGame(bool loadHud) {
+  void initializeGame() {
     _ember = EmberPlayer(position: Vector2(40, gameRef.canvasSize.y - 128));
     gameRef.world.add(_ember);
-
-    if (loadHud) {
-      gameRef.world.add(Hud());
-    }
   }
 
 }

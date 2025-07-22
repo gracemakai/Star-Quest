@@ -6,6 +6,8 @@ import 'package:star_quest/highscore_manager.dart';
 import 'package:star_quest/level_management/level_manager.dart';
 import 'package:star_quest/util/colors.dart';
 
+import 'overlays/hud.dart';
+
 class StarQuestGame extends FlameGame
     with HasCollisionDetection, HasKeyboardHandlerComponents {
   double objectSpeed = 0.0;
@@ -33,6 +35,7 @@ class StarQuestGame extends FlameGame
     levelManager = LevelManager(this);
 
     levelManager.loadLevel(1);
+    add(Hud());
   }
 
   @override
