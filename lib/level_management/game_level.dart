@@ -4,7 +4,7 @@ import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/util/colors.dart';
 
-import '../actors/water_enemy.dart';
+import '../actors/enemy.dart';
 import '../objects/platform_block.dart';
 import '../objects/star.dart';
 
@@ -56,9 +56,9 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
           case const (Star):
             game.world
                 .add(Star(gridPosition: block.gridPosition, xOffset: xOffset));
-          case const (WaterEnemy):
+          case const (Enemy):
             game.world.add(
-                WaterEnemy(gridPosition: block.gridPosition, xOffset: xOffset));
+                Enemy(gridPosition: block.gridPosition, xOffset: xOffset));
         }
       }
     }

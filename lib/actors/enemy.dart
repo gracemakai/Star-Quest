@@ -3,13 +3,13 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:star_quest/star_quest.dart';
 
-class WaterEnemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame>{
+class Enemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame>{
   final Vector2 gridPosition;
   double xOffset;
 
   final Vector2 velocity = Vector2.zero();
 
-  WaterEnemy({
+  Enemy({
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);

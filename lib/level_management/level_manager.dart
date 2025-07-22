@@ -2,12 +2,12 @@ import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:star_quest/level_management/game_level.dart';
 
-import '../actors/ember.dart';
+import '../actors/player.dart';
 
 class LevelManager extends Component{
   int currentLevel = 1;
   int maxLevel = 3;
-  late EmberPlayer _ember;
+  late Player _ember;
   late FlameGame gameRef;
 
   LevelManager(this.gameRef);
@@ -38,7 +38,7 @@ class LevelManager extends Component{
   }
 
   void initializeGame() {
-    _ember = EmberPlayer(position: Vector2(40, gameRef.canvasSize.y - 128));
+    _ember = Player(position: Vector2(40, gameRef.canvasSize.y - 128));
     gameRef.world.add(_ember);
   }
 

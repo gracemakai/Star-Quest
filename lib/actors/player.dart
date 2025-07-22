@@ -2,14 +2,14 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/services.dart';
-import 'package:star_quest/actors/water_enemy.dart';
+import 'package:star_quest/actors/enemy.dart';
 import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/objects/platform_block.dart';
 
 import '../objects/star.dart';
 
-class EmberPlayer extends SpriteAnimationComponent
+class Player extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameReference<StarQuestGame> {
   int horizontalDirection = 0; // -1 for left, 1 for right, 0 for no movement
   final Vector2 velocity = Vector2.zero();
@@ -27,7 +27,7 @@ class EmberPlayer extends SpriteAnimationComponent
   int starsCollected = 0;
   int health = 3;
 
-  EmberPlayer({
+  Player({
     required super.position,
   }) : super(
           size: Vector2.all(64),
@@ -150,7 +150,7 @@ class EmberPlayer extends SpriteAnimationComponent
       game.starsCollected++;
     }
 
-    if (other is WaterEnemy) {
+    if (other is Enemy) {
       hit();
       other.removeFromParent();
     }
