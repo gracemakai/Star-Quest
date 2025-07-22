@@ -73,6 +73,12 @@ class EmberPlayer extends SpriteAnimationComponent
     if (position.x - 36 <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
     }
+    //Prevent ember from going beyond the top of the screen.
+    if (position.y - 36 <= 0 && velocity.y < 0) {
+      velocity.y = 0;
+      isOnGround = true;
+    }
+
     // Prevent ember from going beyond half screen.
     if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
       velocity.x = 0;
