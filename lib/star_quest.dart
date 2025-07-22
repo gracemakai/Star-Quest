@@ -34,7 +34,7 @@ class StarQuestGame extends FlameGame
     camera.viewfinder.anchor = Anchor.topLeft;
     levelManager = LevelManager(this);
 
-    levelManager.loadLevel(3);
+    levelManager.loadLevel(1);
     add(Hud());
   }
 
@@ -82,7 +82,7 @@ class StarQuestGame extends FlameGame
     starsCollected = 0;
     health = 3;
     isGameOver = false;
-    levelManager.initializeGame();
+    levelManager.resetGame();
   }
 
   void setBackgroundColor(Color color) {

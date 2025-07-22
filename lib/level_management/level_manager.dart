@@ -1,7 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:star_quest/level_management/game_level.dart';
-import 'package:star_quest/overlays/hud.dart';
 
 import '../actors/ember.dart';
 
@@ -41,6 +40,15 @@ class LevelManager extends Component{
   void initializeGame() {
     _ember = EmberPlayer(position: Vector2(40, gameRef.canvasSize.y - 128));
     gameRef.world.add(_ember);
+  }
+
+  void resetGame() {
+    for (var e in gameRef.world.children) {
+      e.removeFromParent();
+    }
+    currentLevel = 1;
+    loadLevel(currentLevel);
+    initializeGame();
   }
 
 }
