@@ -17,9 +17,9 @@ class EmberPlayer extends SpriteAnimationComponent
   bool isOnGround = false;
   final Vector2 fromAbove = Vector2(0, -1);
 
-  final double gravity = 15;
+  final double gravity = 18;
   final double jumpSpeed = 600;
-  final double terminalVelocity = 150;
+  final double terminalVelocity = 180;
 
   bool hasJumped = false;
   bool hitByEnemy = false;
@@ -76,7 +76,6 @@ class EmberPlayer extends SpriteAnimationComponent
     //Prevent ember from going beyond the top of the screen.
     if (position.y - 36 <= 0 && velocity.y < 0) {
       velocity.y = 0;
-      isOnGround = true;
     }
 
     // Prevent ember from going beyond half screen.
