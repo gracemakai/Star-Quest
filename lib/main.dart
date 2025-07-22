@@ -15,7 +15,7 @@ void main() {
       'LevelComplete': (context, game) => LevelCompleteOverlay(
         onNextLevel: () {
           game.overlays.remove('LevelComplete');
-          game.onLevelComplete();
+          game.moveToNextLevel();
         },
       ),
     },

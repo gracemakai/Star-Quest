@@ -119,8 +119,7 @@ class EmberPlayer extends SpriteAnimationComponent
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is GroundBlock && other.lastBlock ||
         other is PlatformBlock && other.lastBlock) {
-      game.overlays.add('LevelComplete');
-      game.pauseEngine();
+      game.levelComplete();
     }
 
     if (other is GroundBlock || other is PlatformBlock) {

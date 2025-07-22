@@ -34,6 +34,10 @@ class LevelManager extends Component{
     }
   }
 
+  bool isLastLevel() {
+    return currentLevel == maxLevel;
+  }
+
   void initializeGame() {
     _ember = EmberPlayer(position: Vector2(40, gameRef.canvasSize.y - 128));
     gameRef.world.add(_ember);

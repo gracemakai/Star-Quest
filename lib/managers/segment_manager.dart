@@ -129,9 +129,9 @@ final segment4 = [
   TileBlock(Vector2(8, 3), PlatformBlock),
   TileBlock(Vector2(9, 0), GroundBlock),
   TileBlock(Vector2(9, 1), WaterEnemy),
-  TileBlock(Vector2(9, 3), PlatformBlock, lastBlock: true),
-  TileBlock(Vector2(10, 3), PlatformBlock, lastBlock: true),
-  TileBlock(Vector2(8, 4), PlatformBlock, lastBlock: true),
+  TileBlock(Vector2(9, 3), PlatformBlock),
+  TileBlock(Vector2(10, 3), PlatformBlock),
+  TileBlock(Vector2(8, 4), PlatformBlock),
   TileBlock(
     Vector2(8, 5),
     PlatformBlock,
@@ -148,7 +148,7 @@ final segment4 = [
     Vector2(11, 8),
     PlatformBlock,
   ),
-  TileBlock(Vector2(11, 9), PlatformBlock, lastBlock: true),
+  TileBlock(Vector2(11, 9), PlatformBlock),
   TileBlock(Vector2(12, 0), GroundBlock, lastBlock: true),
   TileBlock(Vector2(13, 0), GroundBlock, lastBlock: true),
   TileBlock(Vector2(14, 0), GroundBlock, lastBlock: true),
@@ -264,6 +264,12 @@ final segment9 = [
   TileBlock(Vector2(20, 0), GroundBlock, lastBlock: true),
   TileBlock(Vector2(21, 0), GroundBlock, lastBlock: true),
   TileBlock(Vector2(22, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(23, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(24, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(25, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(26, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(27, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(28, 0), GroundBlock, lastBlock: true),
 ];
 
 final segment10 = [

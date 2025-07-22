@@ -34,7 +34,7 @@ class StarQuestGame extends FlameGame
     camera.viewfinder.anchor = Anchor.topLeft;
     levelManager = LevelManager(this);
 
-    levelManager.loadLevel(1);
+    levelManager.loadLevel(3);
     add(Hud());
   }
 
@@ -60,17 +60,29 @@ class StarQuestGame extends FlameGame
     super.update(dt);
   }
 
-  void onLevelComplete() {
+  void moveToNextLevel() {
     // starsCollected += 1;
     levelManager.nextLevel();
     resumeEngine();
+  }
+
+  void levelComplete(){
+    if(levelManager.isLastLevel()){
+      isGameOver = true;
+      overlays.add('GameOver');
+      return;
+    }
+    {
+      overlays.add('LevelComplete');
+      pauseEngine();
+    }
   }
 
   void reset() {
     starsCollected = 0;
     health = 3;
     isGameOver = false;
-    levelManager.initializeGame(false);
+    levelManager.initializeGame();
   }
 
   void setBackgroundColor(Color color) {
