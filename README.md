@@ -1,16 +1,53 @@
-# star_quest
+# 🌟 Star Quest
+A pixel-perfect alien platformer made with Flame + Flutter.
 
-A new Flutter project.
+Help a cute alien leap through unknown terrain, dodge danger, and collect shining stars.
 
-## Getting Started
+## 🎮 Gameplay
+👽 Play as an alien explorer
 
-This project is a starting point for a Flutter application.
+🌠 Collect stars scattered across platforms
 
-A few resources to get you started if this is your first Flutter project:
+☄️ Avoid enemies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🪐 Jump, run, survive — and rack up that high score
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Simple mechanics, addictive fun.
+
+## 🧱 Features
+
+🎨 Pixel art style for nostalgic charm
+
+⚡️ Smooth platformer movement
+
+🧠 Basic enemy AI and collision detection
+
+📦 Clean Flame component architecture
+
+## 🔧 Tech Stack
+Engine: Flame
+
+Language: Dart + Flutter
+
+Assets: Custom pixel art
+
+Architecture: Component-based game loop using Flame’s Game class
+
+
+### 📸 Screenshots
+<img width="400" height="400" alt="Start" src="https://github.com/user-attachments/assets/37bf4e67-5e37-4991-8614-5586a9675735" />
+<img width="400" height="400" alt="Two" src="https://github.com/user-attachments/assets/b7f0bcb7-2fc2-4bbd-acfb-042158a8a749" />
+
+
+### 💡 Inspiration
+Built as an improved version of the Ember Quest Flame tutorial.
+I wanted to create a fun, polished platformer that showcased my game dev skills in a simple but exciting way.
+
+### Run the game locally:
+
+```bash
+# Make sure you have Flutter and FVM set up
+fvm flutter pub get
+fvm flutter run -d chrome
+```
+
