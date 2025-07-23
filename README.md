@@ -38,6 +38,7 @@ Architecture: Component-based game loop using Flame’s Game class
 <img width="400" height="400" alt="Start" src="https://github.com/user-attachments/assets/37bf4e67-5e37-4991-8614-5586a9675735" />
 <img width="400" height="400" alt="Two" src="https://github.com/user-attachments/assets/b7f0bcb7-2fc2-4bbd-acfb-042158a8a749" />
 
+### 👉 **[Click here to play Star Quest](https://starquestt.netlify.app/)**
 
 ### 💡 Inspiration
 Built as an improved version of the Ember Quest Flame tutorial.
