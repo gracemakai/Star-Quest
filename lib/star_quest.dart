@@ -23,7 +23,7 @@ class StarQuestGame extends FlameGame
   Future<void> onLoad() async {
     await images.loadAll([
       'block.png',
-      'ember.png',
+      'alien.png',
       'ground.png',
       'heart.png',
       'heart_half.png',

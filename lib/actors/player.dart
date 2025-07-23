@@ -30,18 +30,18 @@ class Player extends SpriteAnimationComponent
   Player({
     required super.position,
   }) : super(
-          size: Vector2.all(64),
+          size: Vector2.all(72),
           anchor: Anchor.center,
         );
 
   @override
   Future<void> onLoad() async {
     animation = SpriteAnimation.fromFrameData(
-      game.images.fromCache('ember.png'),
+      game.images.fromCache('alien.png'),
       SpriteAnimationData.sequenced(
         amount: 4,
         stepTime: 0.12,
-        textureSize: Vector2.all(16),
+        textureSize: Vector2.all(32),
       ),
     );
     add(CircleHitbox());
