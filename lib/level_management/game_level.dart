@@ -30,6 +30,10 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
         game.setBackgroundColor(underGroundBackgroundColor);
         currentSegments = levelThreeSegments;
         break;
+      case 4:
+        game.setBackgroundColor(underGroundBackgroundColor);
+        currentSegments = levelFourSegments;
+        break;
       default:
         break;
     }

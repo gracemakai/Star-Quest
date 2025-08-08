@@ -19,6 +19,7 @@ final levelOneSegments = [
   segment2,
   segment3,
   segment4,
+  endBlock
 ];
 
 final levelTwoSegments = [
@@ -27,6 +28,7 @@ final levelTwoSegments = [
   segment7,
   segment8,
   segment9,
+  endBlock,
 ];
 
 final levelThreeSegments = [
@@ -35,6 +37,16 @@ final levelThreeSegments = [
   segment12,
   segment13,
   segment14,
+  endBlock,
+];
+
+final levelFourSegments = [
+  segment15,
+  segment16,
+  segment17,
+  segment18,
+  segment19,
+  endBlock,
 ];
 
 final segment0 = [
@@ -149,18 +161,6 @@ final segment4 = [
     PlatformBlock,
   ),
   TileBlock(Vector2(11, 9), PlatformBlock),
-  TileBlock(Vector2(12, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(13, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(14, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(15, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(16, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(17, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(18, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(18, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(19, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(20, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(21, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(22, 0), GroundBlock, lastBlock: true),
 ];
 
 final segment5 = [
@@ -252,24 +252,6 @@ final segment9 = [
   TileBlock(Vector2(5, 6), Star),
   TileBlock(Vector2(10, 0), GroundBlock),
   TileBlock(Vector2(11, 0), GroundBlock),
-  TileBlock(Vector2(12, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(13, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(14, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(15, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(16, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(17, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(18, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(18, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(19, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(20, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(21, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(22, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(23, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(24, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(25, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(26, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(27, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(28, 0), GroundBlock, lastBlock: true),
 ];
 
 final segment10 = [
@@ -351,8 +333,88 @@ final segment14 = [
   TileBlock(Vector2(9, 0), GroundBlock,),
   TileBlock(Vector2(10, 0), GroundBlock),
   TileBlock(Vector2(11, 0), GroundBlock),
+];
+
+final segment15 = [
+  TileBlock(Vector2(0, 0), GroundBlock),
+  TileBlock(Vector2(1, 0), GroundBlock),
+  TileBlock(Vector2(2, 0), GroundBlock),
+  TileBlock(Vector2(3, 0), GroundBlock),
+  TileBlock(Vector2(4, 0), GroundBlock),
+  TileBlock(Vector2(4, 1), Enemy),
+  TileBlock(Vector2(6, 1), Enemy),
+  TileBlock(Vector2(8, 1), Enemy),
+  TileBlock(Vector2(5, 0), GroundBlock),
+  TileBlock(Vector2(5, 2), PlatformBlock),
+  TileBlock(Vector2(9, 2), PlatformBlock),
+  TileBlock(Vector2(6, 0), GroundBlock),
+  TileBlock(Vector2(7, 0), GroundBlock),
+  TileBlock(Vector2(8, 0), GroundBlock),
+  TileBlock(Vector2(8, 4), Star),
+];
+
+final segment16 = [
+  TileBlock(Vector2(3, 3), PlatformBlock),
+  TileBlock(Vector2(4, 5), PlatformBlock),
+  TileBlock(Vector2(7, 8), Enemy),
+  TileBlock(Vector2(5.5, 7), PlatformBlock),
+  TileBlock(Vector2(6.5, 7), PlatformBlock),
+  TileBlock(Vector2(6, 8), Star),
+];
+
+final segment17 = [
+  TileBlock(Vector2(0, 0), GroundBlock),
+  TileBlock(Vector2(1, 0), GroundBlock),
+  TileBlock(Vector2(2, 0), GroundBlock),
+  TileBlock(Vector2(3, 0), GroundBlock),
+  TileBlock(Vector2(4, 0), GroundBlock),
+  TileBlock(Vector2(5, 0), GroundBlock),
+  TileBlock(Vector2(6, 0), GroundBlock),
+  TileBlock(Vector2(3, 1), Enemy),
+  TileBlock(Vector2(6, 1), Enemy),
+  TileBlock(Vector2(7, 0), GroundBlock),
+  TileBlock(Vector2(9, 1), Enemy),
+  TileBlock(Vector2(8, 0), GroundBlock),
+  TileBlock(Vector2(9, 0), GroundBlock),
+  TileBlock(Vector2(7, 3), Star),
+];
+
+final segment18 = [
+  TileBlock(Vector2(0, 0), GroundBlock),
+  TileBlock(Vector2(2, 3), PlatformBlock),
+  TileBlock(Vector2(5, 5), PlatformBlock),
+  TileBlock(Vector2(9, 4), Enemy),
+  TileBlock(Vector2(8.5, 3), PlatformBlock),
+  TileBlock(Vector2(7.5, 3), PlatformBlock),
+  TileBlock(Vector2(8, 4), Star),
+  TileBlock(Vector2(11, 5), PlatformBlock),
+];
+
+final segment19 = [
+  TileBlock(Vector2(0, 0), GroundBlock),
+  TileBlock(Vector2(1, 0), GroundBlock),
+  TileBlock(Vector2(3.5, 2), PlatformBlock),
+  TileBlock(Vector2(4.5, 2), PlatformBlock),
+  TileBlock(Vector2(4, 4), PlatformBlock),
+  TileBlock(Vector2(4, 7), Star),
+  TileBlock(Vector2(5, 3), Enemy),
+  TileBlock(Vector2(9, 0), GroundBlock,),
+  TileBlock(Vector2(10, 0), GroundBlock),
   TileBlock(Vector2(11, 0), GroundBlock),
+];
+
+final endBlock = [
+  TileBlock(Vector2(0, 0), GroundBlock),
+  TileBlock(Vector2(1, 0), GroundBlock),
+  TileBlock(Vector2(2, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(3, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(4, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(5, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(6, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(7, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(8, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(9, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(10, 0), GroundBlock, lastBlock: true),
+  TileBlock(Vector2(11, 0), GroundBlock, lastBlock: true),
   TileBlock(Vector2(12, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(13, 0), GroundBlock, lastBlock: true),
-  TileBlock(Vector2(14, 0), GroundBlock, lastBlock: true),
 ];
