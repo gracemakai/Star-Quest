@@ -5,7 +5,6 @@ import 'package:star_quest/overlays/heart.dart';
 
 class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
   Hud({
-    super.position,
     super.size,
     super.scale,
     super.angle,
@@ -19,7 +18,7 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
   @override
   Future<void> onLoad() async {
     _scoreTextComponent = TextComponent(
-      text: '${game.starsCollected}aaaaaa',
+      text: '${game.starsCollected}',
       textRenderer: TextPaint(
         style: const TextStyle(
           fontSize: 32,
@@ -27,8 +26,8 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
         ),
       ),
       anchor: Anchor.center,
-      position: Vector2(800  , 20),
-      size: Vector2.all(2),
+      position: Vector2(game.gameWidth * 0.9, 20),
+      size: Vector2.all(32),
     );
 
     add(_scoreTextComponent);
@@ -37,7 +36,7 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
     add(
       SpriteComponent(
         sprite: starSprite,
-        position: Vector2(game.gameWidth * 0.9, 20),
+        position: Vector2(game.gameWidth * 0.85, 20),
         size: Vector2.all(32),
         anchor: Anchor.center,
       ),

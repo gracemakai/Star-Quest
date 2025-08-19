@@ -36,18 +36,16 @@ class StarQuestGame extends FlameGame
       'water_enemy.png',
     ]);
 
+    gameWidth = width;
+    gameHeight = height;
+    bannerHeight = height < 500 ? (height * 0.7) : 400;
+    bannerWidth = width < 900 ? (width * 0.5) : 500;
+
     camera.viewfinder.anchor = Anchor.topLeft;
     levelManager = LevelManager(this);
 
     levelManager.loadLevel(1);
     add(Hud());
-
-    gameWidth = width;
-    gameHeight = height;
-    bannerHeight = height < 500 ? (height * 0.7) : 400;
-    bannerWidth = width < 900 ? (width * 0.5) : 500;
-    
-    print('aaaa $bannerHeight aaa $bannerWidth');
   }
 
   @override
