@@ -19,7 +19,7 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
   @override
   Future<void> onLoad() async {
     _scoreTextComponent = TextComponent(
-      text: '${game.starsCollected}',
+      text: '${game.starsCollected}aaaaaa',
       textRenderer: TextPaint(
         style: const TextStyle(
           fontSize: 32,
@@ -27,7 +27,8 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
         ),
       ),
       anchor: Anchor.center,
-      position: Vector2(game.size.x - 60, 20),
+      position: Vector2(800  , 20),
+      size: Vector2.all(2),
     );
 
     add(_scoreTextComponent);
@@ -36,7 +37,7 @@ class Hud extends PositionComponent with HasGameReference<StarQuestGame> {
     add(
       SpriteComponent(
         sprite: starSprite,
-        position: Vector2(game.size.x - 100, 20),
+        position: Vector2(game.gameWidth * 0.9, 20),
         size: Vector2.all(32),
         anchor: Anchor.center,
       ),

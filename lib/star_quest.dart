@@ -41,8 +41,9 @@ class StarQuestGame extends FlameGame
 
     levelManager.loadLevel(1);
     add(Hud());
-    print('bbbb $height b $width');
 
+    gameWidth = width;
+    gameHeight = height;
     bannerHeight = height < 500 ? (height * 0.7) : 400;
     bannerWidth = width < 900 ? (width * 0.5) : 500;
     
