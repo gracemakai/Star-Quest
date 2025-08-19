@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:star_quest/star_quest.dart';
 
 class MainMenu extends StatelessWidget{
@@ -16,8 +17,8 @@ class MainMenu extends StatelessWidget{
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 400,
-            width: 400,
+          height: game.bannerHeight,
+            width: game.bannerWidth,
           decoration: const BoxDecoration(
             color: blackTextColor,
             borderRadius: BorderRadius.all(
@@ -27,42 +28,38 @@ class MainMenu extends StatelessWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Star Quest',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.sp,
                   color: whiteTextColor,
                 ),
               ),
-              const SizedBox(height: 40),
-              SizedBox(
-                width: 200,
-                height: 75,
-                child: ElevatedButton(
-                  onPressed: () {
-                    game.overlays.remove('MainMenu');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: whiteTextColor,
-                  ),
-                  child: const Text(
-                    'Play',
-                    style: TextStyle(
-                      fontSize: 40.0,
-                      color: blackTextColor,
-                    ),
+              SizedBox(height: 0.05.sh),
+              ElevatedButton(
+                onPressed: () {
+                  game.overlays.remove('MainMenu');
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: whiteTextColor,
+                ),
+                child: Text(
+                  'Play',
+                  style: TextStyle(
+                    fontSize: 20.0.sp,
+                    color: blackTextColor,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              const Text(
+              SizedBox(height: 0.05.sh),
+              Text(
                 '''Use WASD or Arrow Keys for movement.
 Space bar to jump.
 Collect as many stars as you can and avoid enemies!''',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: whiteTextColor,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                 ),
               ),
             ],

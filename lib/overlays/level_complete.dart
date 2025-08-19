@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LevelCompleteOverlay extends StatelessWidget {
   final VoidCallback onNextLevel;
@@ -16,11 +17,11 @@ class LevelCompleteOverlay extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
+              Text(
                 'Level Complete!',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 24),
+               SizedBox(height: 0.05.sh),
               ElevatedButton(
                 onPressed: onNextLevel,
                 child: const Text('Next Level'),
