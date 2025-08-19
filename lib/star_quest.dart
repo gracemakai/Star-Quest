@@ -4,6 +4,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:star_quest/highscore_manager.dart';
 import 'package:star_quest/level_management/level_manager.dart';
+import 'package:star_quest/main.dart';
 import 'package:star_quest/util/colors.dart';
 
 import 'overlays/hud.dart';
@@ -18,6 +19,10 @@ class StarQuestGame extends FlameGame
   bool isGameOver = false;
   Color _backgroundColor = dayBackgroundColor;
   late LevelManager levelManager;
+  var gameWidth = 640.0;
+  var gameHeight = 360.0;
+  var bannerHeight = 0.0;
+  var bannerWidth = 0.0;
 
   @override
   Future<void> onLoad() async {
@@ -36,6 +41,12 @@ class StarQuestGame extends FlameGame
 
     levelManager.loadLevel(1);
     add(Hud());
+    print('bbbb $height b $width');
+
+    bannerHeight = height < 500 ? (height * 0.7) : 400;
+    bannerWidth = width < 900 ? (width * 0.5) : 500;
+    
+    print('aaaa $bannerHeight aaa $bannerWidth');
   }
 
   @override

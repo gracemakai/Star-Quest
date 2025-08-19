@@ -20,7 +20,7 @@ class Star extends SpriteComponent with HasGameReference<StarQuestGame> {
     final starImage = game.images.fromCache('star.png');
     sprite = Sprite(starImage);
     position = Vector2((gridPosition.x * size.x) + xOffset + (size.x / 2),
-        game.size.y - (gridPosition.y * size.y) - (size.y / 2));
+        game.gameHeight - (gridPosition.y * size.y) - (size.y / 2));
 
     add(RectangleHitbox(collisionType: CollisionType.passive));
     add(SizeEffect.by(

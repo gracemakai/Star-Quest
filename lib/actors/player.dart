@@ -79,7 +79,7 @@ class Player extends SpriteAnimationComponent
     }
 
     // Prevent ember from going beyond half screen.
-    if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
+    if (position.x + 64 >= game.gameHeight / 2 && horizontalDirection > 0) {
       velocity.x = 0;
       game.objectSpeed = -moveSpeed;
     }
@@ -103,7 +103,7 @@ class Player extends SpriteAnimationComponent
     position += velocity * dt;
 
     // If ember fell in pit, then game over.
-    if (position.y > game.size.y + size.y) {
+    if (position.y > game.gameHeight + size.y) {
       game.health = 0;
     }
 
