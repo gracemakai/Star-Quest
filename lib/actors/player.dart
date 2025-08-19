@@ -151,6 +151,7 @@ class Player extends SpriteAnimationComponent
     }
 
     if (other is Enemy) {
+
       hit();
       other.removeFromParent();
     }
@@ -159,16 +160,16 @@ class Player extends SpriteAnimationComponent
   }
 
   void hit() {
-    if (!hitByEnemy) {
+    // if (!hitByEnemy) {
       game.health--;
       hitByEnemy = true;
-    }
+    // }
 
     add(OpacityEffect.fadeOut(
       EffectController(
         alternate: true,
         duration: 0.1,
-        repeatCount: 6,
+        repeatCount: 2,
       ),
     )..onComplete = () {
         hitByEnemy = false;
