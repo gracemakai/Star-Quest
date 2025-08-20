@@ -2,12 +2,15 @@ import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
+import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:star_quest/highscore_manager.dart';
 import 'package:star_quest/level_management/level_manager.dart';
 import 'package:star_quest/main.dart';
 import 'package:star_quest/util/colors.dart';
 
+import 'actors/player.dart';
 import 'overlays/hud.dart';
 
 class StarQuestGame extends FlameGame
@@ -50,6 +53,8 @@ class StarQuestGame extends FlameGame
 
     levelManager.loadLevel(1);
     add(Hud());
+
+    addButtons();
   }
 
   @override
@@ -101,5 +106,59 @@ class StarQuestGame extends FlameGame
 
   void setBackgroundColor(Color color) {
     _backgroundColor = color;
+  }
+
+  void addButtons() {
+    final buttonSize = Vector2(60, 60);
+    var radius = 15.0;
+    final player = children.whereType<Player>().firstOrNull;
+
+    // Left button
+    add(
+      HudButtonComponent(
+        button:
+            CircleComponent(radius: radius, paint: BasicPalette.yellow.paint()),
+        buttonDown:
+            CircleComponent(radius: radius, paint: BasicPalette.yellow.paint()),
+        position: Vector2(radius, gameHeight - radius),
+        margin: EdgeInsets.only(left: radius, bottom: radius),
+        onPressed: () {
+          if (player != null) player.horizontalDirection = -1;
+        },
+        onReleased: () {
+          if (player != null) player.horizontalDirection = 0;
+        },
+      ),
+    );
+
+    // Up (jump) button
+    add(
+      HudButtonComponent(
+        button: CircleComponent(radius: radius, paint: BasicPalette.pink.paint()),
+        buttonDown:
+            CircleComponent(radius: radius, paint: BasicPalette.blue.paint()),
+        position: Vector2(gameWidth - radius, gameHeight - radius),
+        margin: EdgeInsets.only(bottom: radius * 3),
+        onPressed: () {
+          if (player != null) player.hasJumped = true;
+        },
+      ),
+    );
+
+    // Right button
+    add(
+      HudButtonComponent(
+        button: CircleComponent(radius: radius, paint: BasicPalette.gray.paint()),
+        buttonDown:
+            CircleComponent(radius: radius, paint: BasicPalette.blue.paint()),
+        margin: EdgeInsets.only(right: radius, bottom: radius),
+        onPressed: () {
+          if (player != null) player.horizontalDirection = 1;
+        },
+        onReleased: () {
+          if (player != null) player.horizontalDirection = 0;
+        },
+      ),
+    );
   }
 }
