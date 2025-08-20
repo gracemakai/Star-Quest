@@ -1,3 +1,4 @@
+import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -35,6 +36,7 @@ class StarQuestGame extends FlameGame
       'star.png',
       'water_enemy.png',
     ]);
+    camera.viewport = FixedResolutionViewport(resolution: Vector2(1440, 812));
 
     gameWidth = width;
     gameHeight = height;

@@ -26,7 +26,7 @@ class Enemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame
     );
 
     position = Vector2((gridPosition.x * size.x) + xOffset,
-        game.gameWidth - (gridPosition.y * size.y));
+        game.size.y - (gridPosition.y * size.y));
 
     add(RectangleHitbox(collisionType: CollisionType.passive));
     add(MoveEffect.by(

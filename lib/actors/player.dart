@@ -103,7 +103,7 @@ class Player extends SpriteAnimationComponent
     position += velocity * dt;
 
     // If ember fell in pit, then game over.
-    if (position.y > game.gameHeight + size.y) {
+    if (position.y > game.size.y + size.y) {
       game.health = 0;
     }
 
