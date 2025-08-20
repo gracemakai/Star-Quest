@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:star_quest/star_quest.dart';
 import 'package:star_quest/managers/segment_manager.dart';
 
+import '../util/constants.dart';
+
 class GroundBlock extends SpriteComponent with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
@@ -18,7 +20,7 @@ class GroundBlock extends SpriteComponent with HasGameReference<StarQuestGame> {
     required this.gridPosition,
     required this.xOffset,
     required this.lastBlock,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(blockSize), anchor: Anchor.bottomLeft);
 
   @override
   void onLoad() {

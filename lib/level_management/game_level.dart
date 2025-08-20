@@ -7,6 +7,7 @@ import 'package:star_quest/util/colors.dart';
 import '../actors/enemy.dart';
 import '../objects/platform_block.dart';
 import '../objects/star.dart';
+import '../util/constants.dart';
 
 class GameLevel extends Component with HasGameReference<StarQuestGame> {
   final int currentLevel;
@@ -44,7 +45,7 @@ class GameLevel extends Component with HasGameReference<StarQuestGame> {
     var segmentsToLoad = currentSegments.length;
 
     for (var i = 0; i < segmentsToLoad; i++) {
-      final xOffset = (i * 640).toDouble();
+      final xOffset = (i * blockSize * 10).toDouble();
       for (final block in currentSegments[i]) {
         switch (block.blockType) {
           case const (GroundBlock):

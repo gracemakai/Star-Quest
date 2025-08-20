@@ -36,7 +36,9 @@ class StarQuestGame extends FlameGame
       'star.png',
       'water_enemy.png',
     ]);
-    camera.viewport = FixedResolutionViewport(resolution: Vector2(1440, 812));
+    debugMode = true;
+    camera = CameraComponent.withFixedResolution(width: 760, height: 360)
+      ..world = world;
 
     gameWidth = width;
     gameHeight = height;
@@ -78,8 +80,8 @@ class StarQuestGame extends FlameGame
     resumeEngine();
   }
 
-  void levelComplete(){
-    if(levelManager.isLastLevel()){
+  void levelComplete() {
+    if (levelManager.isLastLevel()) {
       isGameOver = true;
       overlays.add('GameOver');
       return;

@@ -2,6 +2,8 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:star_quest/star_quest.dart';
 
+import '../util/constants.dart';
+
 class PlatformBlock extends SpriteComponent
     with HasGameReference<StarQuestGame> {
   final Vector2 gridPosition;
@@ -13,7 +15,7 @@ class PlatformBlock extends SpriteComponent
     required this.gridPosition,
     required this.xOffset,
     this.lastBlock = false,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(blockSize), anchor: Anchor.bottomLeft);
 
   @override
   Future<void> onLoad() async {

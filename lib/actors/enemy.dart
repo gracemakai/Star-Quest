@@ -3,6 +3,8 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:star_quest/star_quest.dart';
 
+import '../util/constants.dart';
+
 class Enemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame>{
   final Vector2 gridPosition;
   double xOffset;
@@ -12,7 +14,7 @@ class Enemy extends SpriteAnimationComponent with HasGameReference<StarQuestGame
   Enemy({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(enemySize), anchor: Anchor.bottomLeft);
 
   @override
   void onLoad() {

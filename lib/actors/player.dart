@@ -8,6 +8,7 @@ import 'package:star_quest/objects/ground_block.dart';
 import 'package:star_quest/objects/platform_block.dart';
 
 import '../objects/star.dart';
+import '../util/constants.dart';
 
 class Player extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameReference<StarQuestGame> {
@@ -30,7 +31,7 @@ class Player extends SpriteAnimationComponent
   Player({
     required super.position,
   }) : super(
-          size: Vector2.all(72),
+          size: Vector2.all(playerSize),
           anchor: Anchor.center,
         );
 
